@@ -12,11 +12,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- NuGet Package References -->
     <PackageReference Include="Harmony" />
     <PackageReference Include="xTile" />
-
-    <!-- Local or Manually Referenced DLLs -->
     <Reference Include="MonoGame.Framework">
       <HintPath>libs/MonoGame.Framework.dll</HintPath>
     </Reference>
@@ -26,7 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <!-- Manually Add Other References If Needed -->
     <Reference Include="Stardew Valley" />
     <Reference Include="StardewValley.GameData" />
   </ItemGroup>
