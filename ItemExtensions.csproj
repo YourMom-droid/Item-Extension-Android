@@ -12,14 +12,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" />
-    <PackageReference Include="MonoGame.Framework" />
-    <PackageReference Include="StardewModdingAPI" />
+    <!-- NuGet Package References -->
     <PackageReference Include="Harmony" />
     <PackageReference Include="xTile" />
+
+    <!-- Local or Manually Referenced DLLs -->
+    <Reference Include="MonoGame.Framework">
+      <HintPath>libs/MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="StardewModdingAPI">
+      <HintPath>libs/StardewModdingAPI.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>
+    <!-- Manually Add Other References If Needed -->
     <Reference Include="Stardew Valley" />
     <Reference Include="StardewValley.GameData" />
   </ItemGroup>
