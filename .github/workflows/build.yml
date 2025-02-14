@@ -20,7 +20,7 @@ jobs:
 
       - name: Build Mod
         env:
-          GAME_PATH: C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley
+          GAME_PATH: "C:/Program Files (x86)/Steam/steamapps/common/Stardew Valley"
         run: dotnet build --configuration Release --framework net6.0 --no-restore /p:GamePath=$GAME_PATH
 
       - name: Upload Compiled Mod
