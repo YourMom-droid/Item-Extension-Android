@@ -32,4 +32,3 @@ jobs:
             bin/Release/net6.0/**/*.dll
             bin/Release/net6.0/**/*.pdb
             bin/Release/net6.0/**/*.json
-          ./nupkg/*.nupkg  
