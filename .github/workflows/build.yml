@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set Stardew Valley Game Path
-        run: echo "Gamepath=/path/to/your/Stardew/Valley" >> $GITHUB_ENV
+        run: echo "Gamepath=C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley" >> $GITHUB_ENV
 
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v3
