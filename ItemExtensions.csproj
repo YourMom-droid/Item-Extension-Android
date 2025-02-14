@@ -7,7 +7,7 @@
     <AssemblyName>ItemExtensions</AssemblyName>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <ModFoldername>ItemExtenions</ModFoldername>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <LangVersion>11.0</LangVersion>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -15,6 +15,9 @@
   <ItemGroup>
     <PackageReference Include="Lib.Harmony" Version="2.3.5" />
     <PackageReference Include="Platonymous.TMXTile" Version="1.5.9" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="MonoGame.Framework">
       <HintPath>lib/MonoGame.Framework.dll</HintPath>
       <Private>false</Private>
@@ -29,6 +32,10 @@
     </Reference>
     <Reference Include="StardewValley.GameData">
       <HintPath>lib/StardewValley.GameData.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="xTile">
+      <HintPath>lib/xTile.dll</HintPath>
       <Private>false</Private>
     </Reference>
   </ItemGroup>
