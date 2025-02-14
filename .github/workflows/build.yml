@@ -1,4 +1,4 @@
-name: Build and Push Stardew Valley Mod
+name: Build and Push
 
 on: [push, pull_request]
 
@@ -10,9 +10,6 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set Stardew Valley Game Path
-        run: echo "Gamepath=C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley" >> $GITHUB_ENV
-
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v3
         with:
@@ -22,7 +19,9 @@ jobs:
         run: dotnet restore
 
       - name: Build Mod
-        run: dotnet build --configuration Release --framework net6.0 --no-restore
+        env:
+          GAME_PATH: /path/to/your/stardewvalley/game
+        run: dotnet build --configuration Release --framework net6.0 --no-restore /p:GamePath=$GAME_PATH
 
       - name: Upload Compiled Mod
         uses: actions/upload-artifact@v4
