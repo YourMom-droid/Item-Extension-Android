@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <AssemblyName>ItemExtensions</AssemblyName>
-    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
     <TargetFramework>net6.0</TargetFramework>
-    <EnableModDeploy>false</EnableModDeploy>
+    <EnableModDeploy>true</EnableModDeploy>
   </PropertyGroup>
 
   <PropertyGroup>
