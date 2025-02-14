@@ -4,7 +4,7 @@
     <AssemblyName>ItemExtensions</AssemblyName>
     <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
     <TargetFramework>net6.0</TargetFramework>
-    <Gamepath>C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley</Gamepath>
+    <EnableModDeploy>false</EnableModDeploy>
   </PropertyGroup>
 
   <PropertyGroup>
