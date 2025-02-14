@@ -12,9 +12,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Harmony" />
-    <PackageReference Include="xTile" />
-    <Reference Include="MonoGame.Framework">
+    <PackageReference Include="Lib.Harmony" Version="2.3.5" />
+    <PackageReference Include="Platonymous.TMXTile" Version="1.5.9" />
+    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.3.2" />
+  <Reference Include="MonoGame.Framework">
       <HintPath>libs/MonoGame.Framework.dll</HintPath>
     </Reference>
     <Reference Include="StardewModdingAPI">
