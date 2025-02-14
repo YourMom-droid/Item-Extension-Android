@@ -19,7 +19,7 @@ jobs:
         run: dotnet restore
 
       - name: Build Mod
-        run: dotnet build --configuration Release --framework net8.0 --no-restore
+        run: dotnet build --configuration Release --framework net6.0 --no-restore
 
       - name: Upload Compiled Mod
         uses: actions/upload-artifact@v4
