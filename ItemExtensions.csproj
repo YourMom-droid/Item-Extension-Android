@@ -8,8 +8,10 @@
     <LangVersion>11.0</LangVersion>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
-  
+
   <ItemGroup>
+    <PackageReference Include="System.Collections" Version="4.3.0" />
+    <PackageReference Include="System" Version="4.3.0" />
     <Reference Include="MonoGame.Framework">
       <HintPath>libs/MonoGame.Framework.dll</HintPath>
     </Reference>
