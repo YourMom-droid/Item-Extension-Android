@@ -6,7 +6,7 @@
     <AssemblyName>ItemExtensions</AssemblyName>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <ModFoldername>ItemExtenions</ModFoldername>
-    <TargetFramework>net6.0</TargetFramwork>
+    <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
   <PropertyGroup>
