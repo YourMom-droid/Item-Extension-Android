@@ -1,0 +1,49 @@
+name: Build and Publish Mod
+
+on:
+  push:
+    tags:
+      - "v*"  # Runs when you push a tag like v1.0.0
+  workflow_dispatch:  # Allows manual triggering in GitHub Actions
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Restore Dependencies
+        run: dotnet restore
+
+      - name: Build Mod
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Create Release Folder
+        run: |
+          mkdir -p release
+          cp bin/Release/net8.0/*.dll release/
+          cp manifest.json release/  # Include manifest.json if needed
+          cp i18n/* release/  # Include translations if applicable
+          cp assets/* release/  # Include assets like images, if needed
+          cd release && zip -r ../mod_release.zip . && cd ..
+
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: mod_release
+          path: mod_release.zip
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: mod_release.zip
+          body: "New release of the mod"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
