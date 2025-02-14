@@ -4,6 +4,7 @@
     <AssemblyName>ItemExtensions</AssemblyName>
     <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
     <TargetFramework>net6.0</TargetFramework>
+    <StardewValleyGamepath>C:\Users\Jay\Desktop\Stardew Valley</StardewValleyGamepath>
   </PropertyGroup>
 
   <PropertyGroup>
