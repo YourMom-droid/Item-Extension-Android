@@ -13,13 +13,13 @@ jobs:
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '6.x'
+          dotnet-version: '8.x'
 
       - name: Restore Dependencies
         run: dotnet restore
 
       - name: Build Mod
-        run: dotnet build --configuration Release --framework net6.0 --no-restore
+        run: dotnet build --configuration Release --framework net8.0 --no-restore
 
       - name: Pack Mod (Optional, but recommended)
         run: dotnet pack --configuration Release --framework net6.0 -o ./nupkg
@@ -29,6 +29,6 @@ jobs:
         with:
           name: ItemExtensions
           path: |
-            bin/Release/net6.0/**/*.dll
-            bin/Release/net6.0/**/*.pdb
-            bin/Release/net6.0/**/*.json
+            bin/Release/net8.0/**/*.dll
+            bin/Release/net8.0/**/*.pdb
+            bin/Release/net8.0/**/*.json
