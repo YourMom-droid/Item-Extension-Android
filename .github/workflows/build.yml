@@ -1,10 +1,6 @@
-name: Build and Push DLLs
+name: Build and Push Stardew Valley Mod
 
-on:
-  push:
-    tags:
-      - "v*"  # Runs when you push a tag like v1.0.0
-  workflow_dispatch:  # Allows manual triggering in GitHub Actions
+on: [push, pull_request]
 
 jobs:
   build:
@@ -14,28 +10,39 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup .NET
+      - name: Setup .NET SDK
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: "8.0.x"
+          dotnet-version: 8.0.x
 
       - name: Restore Dependencies
         run: dotnet restore
 
-      - name: Build Framework
-        run: dotnet build --configuration Release --no-restore
+      - name: Build Mod
+        run: dotnet build --configuration Release --framework net8.0 --no-restore
 
-      - name: Prepare DLLs for Commit
+      - name: Upload Compiled Mod
+        uses: actions/upload-artifact@v4
+        with:
+          name: ItemExtensions
+          path: |
+            bin/Release/net8.0/**/*.dll
+            bin/Release/net8.0/**/*.pdb
+            bin/Release/net8.0/**/*.json
+
+      - name: Prepare Files for Commit
         run: |
-          mkdir -p dlls
-          cp bin/Release/net8.0/*.dll dlls/
-      
-      - name: Commit and Push DLLs
+          mkdir -p mod_build
+          cp -r bin/Release/net8.0/*.dll mod_build/
+          cp -r bin/Release/net8.0/*.pdb mod_build/
+          cp -r bin/Release/net8.0/*.json mod_build/
+
+      - name: Commit and Push Built Files
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout -b dll || git checkout dll
-          cp -r dlls/* .
-          git add *.dll
-          git commit -m "Auto-commit built DLLs"
-          git push origin dll
+          git checkout -b built-mod || git checkout built-mod
+          cp -r mod_build/* .
+          git add *.dll *.pdb *.json
+          git commit -m "Auto-commit built mod files"
+          git push origin built-mod --force
