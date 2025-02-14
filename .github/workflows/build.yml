@@ -19,7 +19,7 @@ jobs:
         run: dotnet restore
 
       - name: Build Mod
-        run: dotnet build --configuration Release --framework net6.0 --no-restore -p:GamePath="/path/to/your/stardew/valley"
+        run: dotnet build --configuration Release --framework net6.0 --no-restore -p:GamePath="C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley"
 
       - name: Pack Mod (Optional, but recommended)
         run: dotnet pack --configuration Release --framework net6.0 -o ./nupkg
