@@ -6,6 +6,7 @@
     <ModFoldername>ItemExtenions</ModFoldername>
     <TargetFramework>net6.0</TargetFramwork>
     <EnableModDeploy>false</EnableModDeploy>
+    <GamePath>$(MSBuildProjectDirectory)/Game</GamePath>
   </PropertyGroup>
 
   <PropertyGroup>
