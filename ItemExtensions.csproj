@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <EnableModDeploy>false</EnableModDeploy>
+    <GamePath>$(MSBuildProjectDirectory)/Game</GamePath>
     <AssemblyName>ItemExtensions</AssemblyName>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <ModFoldername>ItemExtenions</ModFoldername>
     <TargetFramework>net6.0</TargetFramwork>
-    <EnableModDeploy>false</EnableModDeploy>
-    <GamePath>$(MSBuildProjectDirectory)/Game</GamePath>
   </PropertyGroup>
 
   <PropertyGroup>
