@@ -1,4 +1,4 @@
-name: Build and Publish Mod
+name: Build and Push DLLs
 
 on:
   push:
@@ -22,28 +22,20 @@ jobs:
       - name: Restore Dependencies
         run: dotnet restore
 
-      - name: Build Mod
+      - name: Build Framework
         run: dotnet build --configuration Release --no-restore
 
-      - name: Create Release Folder
+      - name: Prepare DLLs for Commit
         run: |
-          mkdir -p release
-          cp bin/Release/net8.0/*.dll release/
-          cp manifest.json release/  # Include manifest.json if needed
-          cp i18n/* release/  # Include translations if applicable
-          cp assets/* release/  # Include assets like images, if needed
-          cd release && zip -r ../mod_release.zip . && cd ..
-
-      - name: Upload Build Artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: mod_release
-          path: mod_release.zip
-
-      - name: Publish GitHub Release
-        uses: softprops/action-gh-release@v2
-        with:
-          files: mod_release.zip
-          body: "New release of the mod"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          mkdir -p dlls
+          cp bin/Release/net8.0/*.dll dlls/
+      
+      - name: Commit and Push DLLs
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b dll || git checkout dll
+          cp -r dlls/* .
+          git add *.dll
+          git commit -m "Auto-commit built DLLs"
+          git push origin dll
