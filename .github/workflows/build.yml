@@ -13,7 +13,7 @@ jobs:
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: 8.0.x
+          dotnet-version: 6.0.x
 
       - name: Restore Dependencies
         run: dotnet restore
@@ -26,16 +26,16 @@ jobs:
         with:
           name: ItemExtensions
           path: |
-            bin/Release/net8.0/**/*.dll
-            bin/Release/net8.0/**/*.pdb
-            bin/Release/net8.0/**/*.json
+            bin/Release/net6.0/**/*.dll
+            bin/Release/net6.0/**/*.pdb
+            bin/Release/net6.0/**/*.json
 
       - name: Prepare Files for Commit
         run: |
           mkdir -p mod_build
-          cp -r bin/Release/net8.0/*.dll mod_build/
-          cp -r bin/Release/net8.0/*.pdb mod_build/
-          cp -r bin/Release/net8.0/*.json mod_build/
+          cp -r bin/Release/net6.0/*.dll mod_build/
+          cp -r bin/Release/net6.0/*.pdb mod_build/
+          cp -r bin/Release/net6.0/*.json mod_build/
 
       - name: Commit and Push Built Files
         run: |
