@@ -1,8 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <EnableModDeploy>false</EnableModDeploy>
-    <GamePath>$(MSBuildProjectDirectory)/Game</GamePath>
+    <EnableGameDebugging>false</EnableGameDebugging>
+<EnableModDeploy>false</EnableModDeploy>
+<EnableModZip>false</EnableModZip>
     <AssemblyName>ItemExtensions</AssemblyName>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <ModFoldername>ItemExtenions</ModFoldername>
