@@ -1,19 +1,41 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-	  <EnableHarmony>true</EnableHarmony>
-    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>ItemExtensions</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
-
+  <PropertyGroup>
+    <LangVersion>11.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  
   <ItemGroup>
-    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.3.2" />
+    <Reference Include="MonoGame.Framework">
+      <HintPath>libs/MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Stardew Valley">
+      <HintPath>libs/Stardew Valley.dll</HintPath>
+    </Reference>
+    <Reference Include="SMAPI.Toolkit.CoreInterfaces">
+      <HintPath>libs/SMAPI.Toolkit.CoreInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="StardewModdingAPI">
+      <HintPath>libs/StardewModdingAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>libs/0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="StardewValley.GameData">
+      <HintPath>libs/StardewValley.GameData.dll</HintPath>
+    </Reference>
+    <Reference Include="xTile">
+      <HintPath>libs/xTile.dll</HintPath>
+    </Reference>
+    <Reference Include="SMAPI.ModBuildConfig.Analyzer">
+      <HintPath>libs/SMAPI.ModBuildConfig.Analyzer.dll</HintPath>
+    </Reference>
+    <Reference Include="SMAPI.ModBuildConfig">
+      <HintPath>libs/SMAPI.ModBuildConfig.dll</HintPath>
+    </Reference>
   </ItemGroup>
-	
-
-  <ItemGroup>
-	<Folder Include="assets\" />
-    <Folder Include="i18n\" />
-  </ItemGroup>
-
 </Project>
