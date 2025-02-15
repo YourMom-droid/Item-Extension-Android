@@ -8,7 +8,6 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <ModFoldername>ItemExtenions</ModFoldername>
     <TargetFramework>net8.0</TargetFramework>
-    <LangVersion>11.0</LangVersion>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
 
