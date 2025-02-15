@@ -1,6 +1,10 @@
-name: Build and Push
+name: Build and Push ItemExtensions Mod
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build:
@@ -16,19 +20,19 @@ jobs:
           dotnet-version: '8.x'
 
       - name: Restore Dependencies
-        run: dotnet restore
+        run: dotnet restore LevelForever.csproj
 
       - name: Build Mod
         run: dotnet build --configuration Release --framework net8.0 --no-restore
 
-      - name: Pack Mod (Optional, but recommended)
-        run: dotnet pack --configuration Release --framework net6.0 -o ./nupkg
+      - name: Publish Mod
+        run: dotnet publish --configuration Release --framework net8.0 --output ./bin/Release/net8.0/publish --no-restore
 
-      - name: Upload Artifact
+      - name: List published directory for debugging
+        run: ls -R ./bin/Release/net8.0/publish/
+
+      - name: Upload DLL Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ItemExtensions
-          path: |
-            bin/Release/net8.0/**/*.dll
-            bin/Release/net8.0/**/*.pdb
-            bin/Release/net8.0/**/*.json
+          name: ItemExtensions_Mod_DLL
+          path: ./bin/Release/net8.0/publish/ItemExtensions.dll
