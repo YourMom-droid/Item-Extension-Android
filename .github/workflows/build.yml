@@ -20,7 +20,7 @@ jobs:
           dotnet-version: '8.x'
 
       - name: Restore Dependencies
-        run: dotnet restore LevelForever.csproj
+        run: dotnet restore ItemExtensions.csproj
 
       - name: Build Mod
         run: dotnet build --configuration Release --framework net8.0 --no-restore
